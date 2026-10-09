@@ -60,7 +60,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: Check Dockerfile for misconfigurations
-        uses: aquasecurity/trivy-action@0.36.0
+        uses: aquasecurity/trivy-action@v0.36.0
         with:
           scan-type: config
           scan-ref: app
@@ -69,7 +69,7 @@ jobs:
       - name: Build image
         run: docker build -t demo-app:${{ github.sha }} ./app
       - name: Scan image for vulnerabilities
-        uses: aquasecurity/trivy-action@0.36.0
+        uses: aquasecurity/trivy-action@v0.36.0
         with:
           image-ref: demo-app:${{ github.sha }}
           severity: CRITICAL
